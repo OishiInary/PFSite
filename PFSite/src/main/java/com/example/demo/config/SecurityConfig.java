@@ -43,12 +43,13 @@ public class SecurityConfig {
 			.permitAll())	
 			.authorizeHttpRequests(authz -> authz          //
 					.requestMatchers("/Hello").permitAll()
-					.requestMatchers("/Header","/Footer").permitAll()//ヘッダーフッターのログイン不要許可
-					.requestMatchers("/About").permitAll()
+					.requestMatchers("layouts/Header","layouts/Footer","layouts/layout").permitAll()//ヘッダーフッターのログイン不要許可
+					.requestMatchers("/About","/Privacy","Terms").permitAll()
 					.requestMatchers("/css/**").permitAll()// (/css以下)のファイルは認証不要
 					.requestMatchers("/public/**").permitAll()//publicフォルダ内はログイン不要
+					.requestMatchers("/admin/**").hasRole("ADMIN")
 					.requestMatchers("/").permitAll()//requestMatcher(カッコ内のリンクと一致しとるなら).permitAll（認証無しでええよ）
-					.anyRequest().authenticated()//anyRequest(上記のリンク以外)はauthenticated(ログイン必要だよ)って記述
+					.anyRequest().permitAll()//anyRequest(上記のリンク以外)はauthenticated(ログイン必要だよ)って記述
 					);
 		return http.build();
 		//正確に言えばbuild()の戻り値はSecurityFilterChainインターフェースを実装したorg.springframework.security.web.DefaultSecurityFilterChainクラスである ↩︎

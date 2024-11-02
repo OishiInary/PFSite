@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head>
+</head>
+<body>
+<nav layout:fragment="header" class="navbar navbar-expand-lg navbar-light bg-primary color fixed-top fs-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fa fa-house" th:href="@{#}"> Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{#}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{#}">Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{#}">Comapany</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{#}">Access</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav align-items-center">
+      	<li class="nav-item align-middle text-white">こんにちは〇〇さん</li>
+      	<li class="nav-item">
+      		<a class="nav-link" th:href="@{/login/login}">
+      			<img th:src="@{/img/88-1.png}" alt="アイコン画像"  th:width="50px" th:height="50px">
+      		</a>
+      	</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</body>
+</html>
