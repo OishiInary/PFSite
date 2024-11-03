@@ -43,6 +43,7 @@ public class SecurityConfig {
 			.permitAll())	
 			.authorizeHttpRequests(authz -> authz          //
 					.requestMatchers("/Hello").permitAll()
+					.requestMatchers("/contact/**").permitAll()
 					.requestMatchers("layouts/Header","layouts/Footer","layouts/layout").permitAll()//ヘッダーフッターのログイン不要許可
 					.requestMatchers("/About","/Privacy","Terms").permitAll()
 					.requestMatchers("/css/**").permitAll()// (/css以下)のファイルは認証不要

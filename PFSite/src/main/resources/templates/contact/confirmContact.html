@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout.html}">
+<head>
+    <title>お問い合わせ | サンプルジャパン</title>
+</head>
+<body>
+    <div layout:fragment="content">
+		<div class="container">
+			<div class="row">お名前</div>
+			<div class="row" th:text="${rb.name}"></div>
+		</div>
+		<div class="container">
+			<div class="row">フリガナ</div>
+			<div class="row" th:text="${rb.kana_name}"></div>
+		</div>
+		<div class="container">
+			<div class="row">郵便番号</div>
+			<div class="row" th:text="${rb.post_code}"></div>
+		</div>
+		<div class="container">
+			<div class="row">住所</div>
+			<div class="row" th:text="${rb.address}"></div>
+		</div>
+		<div class="container">
+			<div class="row">Eメールアドレス</div>
+			<div class="row" th:text="${rb.email}"></div>
+		</div>
+		<div class="container">
+			<div class="row">電話番号</div>
+			<div class="row" th:text="${rb.phone}"></div>
+		</div>
+		<div class="container">
+			<div class="row">お問い合わせ内容</div>
+			<div class="row" th:text="${rb.body}"></div>
+		</div>
+    </div>
+</body>
+</html>

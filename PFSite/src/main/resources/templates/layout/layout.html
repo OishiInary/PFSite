@@ -10,6 +10,9 @@
 </head>
 <body>
 	<nav layout:replace="~{layout/header::header}"></nav>
+	<div th:if="${error}" class="alert alert-danger">
+	    <p th:text="${error}"></p>
+	</div>
 	<main>
 		<div layout:fragment="content"></div>
 	</main>

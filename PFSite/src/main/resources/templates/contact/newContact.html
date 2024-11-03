@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout.html}">
+<head>
+    <title>お問い合わせ | サンプルジャパン</title>
+    <script>
+        // チェックボックスがチェックされていないとき、ボタンを無効にする関数
+        function toggleSubmitButton() {
+            const consentCheckbox = document.getElementById("consent");
+            const submitButton = document.getElementById("submitButton");
+            submitButton.disabled = !consentCheckbox.checked;
+        }
+        window.onload = function() {
+            toggleSubmitButton(); // ページ読み込み時にボタンを無効化
+        }
+    </script>
+</head>
+<body>
+    <div layout:fragment="content">
+        <h1 class="mt-5">登録情報を入力してください</h1>
+        <form action="/contact/confirmContact" th:object="${contactModel}" method="post">
+            <div>
+                <label for="name">名前：</label>
+                <input type="text" th:field="*{name}" /><br/>
+            </div>
+            <div>
+                <label for="kana_name">フリガナ：</label>
+                <input type="text" th:field="*{kana_name}" /><br/>
+            </div>
+            <div>
+                <label for="post_code">郵便番号：</label>
+                <input type="text" th:field="*{post_code}" /><br/>
+            </div>
+            <div>
+                <label for="address">住所：</label>
+                <input type="text" th:field="*{address}" /><br/>
+            </div>
+            <div>
+                <label for="email">Eメールアドレス：</label>
+                <input type="email" th:field="*{email}" /><br/>
+            </div>
+            <div>
+                <label for="phone">電話番号：</label>
+                <input type="tel" th:field="*{phone}" /><br/>
+            </div>
+            <div>
+                <label for="body">お問い合わせ内容：</label>
+                <input type="text" th:field="*{body}" /><br/>
+            </div>
+            <div>
+                <label for="consent">個人情報の取り扱い：</label>
+                <input type="checkbox" th:field="*{consent}" id="consent" onclick="toggleSubmitButton()" /><br/>
+            </div>
+            <button type="submit" id="submitButton" disabled>確認</button>
+        </form>
+    </div>
+</body>
+</html>
+
